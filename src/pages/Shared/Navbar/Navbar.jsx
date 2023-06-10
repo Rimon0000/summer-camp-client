@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from "../../../assets/logo.png";
 
 
 const Navbar = () => {
     const navOptions = <>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/menu">Our Menu</Link></li>
-            <li><Link to="/order/salad">Order Food</Link></li>
+            <li><Link to="/menu">Instructors</Link></li>
+            <li><Link to="/order/salad">Classes</Link></li>
+            <li><Link to="/order/salad">Dashboard</Link></li>
+            <li><Link to="/login">Login</Link></li>
     </>
 
     return (
@@ -21,6 +24,9 @@ const Navbar = () => {
                  {navOptions}
                 </ul>
               </div>
+              <Link to="/" className="mr-3">
+              <img className='w-15 h-14 rounded-lg' src={logo} alt="" />
+              </Link>
               <a className="btn btn-ghost normal-case text-xl">Real Champions</a>
             </div>
             <div className="navbar-center hidden lg:flex">
