@@ -8,7 +8,8 @@ import Swal from 'sweetalert2';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('')
-    const {login} = useContext(AuthContext)
+    const [success, setSuccess] = useState('')
+    const {login, googleLogin} = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -50,19 +51,19 @@ const Login = () => {
     }
 
     const handleGoogleLogin = () =>{
-        // googleLogin()
-        // .then(result =>{
-        //   const loggedUser = result.user 
-        //   console.log(loggedUser)
-        //   setSuccess('User Login successful.')
-        //   setError(' ')
-        //   navigate(from, { replace: true })
+        googleLogin()
+        .then(result =>{
+          const loggedUser = result.user 
+          console.log(loggedUser)
+          setSuccess('User Login successful.')
+          setError(' ')
+          navigate(from, { replace: true })
     
-        // })
-        // .catch(error =>{
-        //   console.log(error)
-        //   setError(error.message)
-        // })
+        })
+        .catch(error =>{
+          console.log(error)
+          setError(error.message)
+        })
     }
 
     return (
@@ -92,6 +93,7 @@ const Login = () => {
                         <input type="submit" className="btn btn-primary" value="Login" />
                       </div>
                       <div>
+                      <p className='text-orange-700'>{success}</p>
                       <p className='text-lime-500'>{error}</p>
                       </div>
                   </form>
