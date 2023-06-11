@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import signUp from "../../assets/sign/signup.jpg"
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Registration = () => {
+  const {createUser} = useContext(AuthContext)
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
 
     const handleSignUp = (event) =>{
         event.preventDefault()
@@ -10,26 +14,26 @@ const Registration = () => {
         const name = form.name.value
         const email = form.email.value
         const password = form.password.value
+        const confirm = form.confirm.value
         const photo = form.photo.value
-        console.log(name, email, password, photo)
+        console.log(name, email, password, confirm, photo)
 
-        // createUser(email, password)
-        // .then(result => {
-        //     const loggedUser = result.user
-        //     console.log(loggedUser)
-        //     setSuccess('User Sign Up successful.')
-        //     setError(' ')
-        //     form.reset()
+        createUser(email, password)
+        .then(result => {
+            const loggedUser = result.user
+            console.log(loggedUser)
+            setSuccess('User Sign Up successful.')
+            setError(' ')
 
-        //     form.reset()
-        //     updateUser(result.user, name, photo)
-        //     console.log(result.user)
-        // })
-        // .catch(error =>{
-        //     console.log(error)
-        //     setError(error.message)
+            form.reset()
+            updateUser(result.user, name, photo)
+            console.log(result.user)
+        })
+        .catch(error =>{
+            console.log(error)
+            setError(error.message)
 
-        // })
+        })
     }
 
 
