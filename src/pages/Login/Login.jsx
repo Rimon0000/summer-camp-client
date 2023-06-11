@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import login from "../../assets/sign/login.jpg"
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState('')
+    const {login} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
 
-    
+    let from = location.state?.from?.pathname || "/";
+
       const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
       };
@@ -17,32 +24,29 @@ const Login = () => {
         const form = event.target 
         const email = form.email.value
         const password = form.password.value
-        const confirm = form.confirm.value
-        console.log(email, password, confirm)
+        console.log(email, password)
 
-        // if(password != confirm){
-        //     setError('Your password and confirm password did not matched.')
-        //     return
-        //   }
-        //   else if(password.length < 6){
-        //     setError('please add at least 6 characters long')
-        //     return
-        //   }
-
-        // login(email, password)
-        // .then(result =>{
-        //     const loggedUser = result.user 
-        //     console.log(loggedUser)
-        //     setSuccess('User Login successful.')
-        //     setError(' ')
-        //     form.reset()
-        //     navigate(from, { replace: true })
-
-        // })
-        // .catch(error =>{
-        //     console.log(error)
-        //     setError(error.message)
-        // })
+        login(email, password)
+        .then(result =>{
+            const loggedUser = result.user 
+            console.log(loggedUser)
+            Swal.fire({
+              title: 'User Login Successful.',
+              showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              }
+            })
+            setError(' ')
+            form.reset()
+            navigate(from, { replace: true })
+        })
+        .catch(error =>{
+            console.log(error)
+            setError(error.message)
+        })
     }
 
     const handleGoogleLogin = () =>{
@@ -88,8 +92,7 @@ const Login = () => {
                         <input type="submit" className="btn btn-primary" value="Login" />
                       </div>
                       <div>
-                      {/* <p className='text-orange-700'>{success}</p>
-                      <p className='text-lime-500'>{error}</p> */}
+                      <p className='text-lime-500'>{error}</p>
                       </div>
                   </form>
                   <p className="my-4 text-center">New to Real champions? <Link className="text-orange-600 font-bold" to="/registration">Sign Up</Link></p>
