@@ -15,28 +15,28 @@ const Dashboard = () => {
         <Outlet></Outlet>
         <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
       </div> 
-      <div className="drawer-side">
+      <div className="drawer-side bg-[#D1A054]">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-        <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+        <ul className="menu p-4 w-80 h-full text-base-content">
           {/* Sidebar content here */}
     
           { isAdmin ? <>
-            <li><NavLink to="/dashboard/mycart"><FaThLarge></FaThLarge> Manage Classes
+            <li><NavLink to="/dashboard/manageClass"><FaThLarge></FaThLarge> Manage Classes
             <span className="badge badge-secondary ml-1">+${cart?.length || 0}</span></NavLink>
             </li>
-            <li><NavLink to="/enrollclass"><FaThLarge></FaThLarge> Manage Users</NavLink></li>
+            <li><NavLink to="/dashboard/manageUser"><FaThLarge></FaThLarge> Manage Users</NavLink></li>
           </> : 
           isInstructor ?
           <>
-            <li><NavLink to="/dashboard/mycart"><FaChalkboardTeacher></FaChalkboardTeacher> Add Class
+            <li><NavLink to="/dashboard/addClass"><FaChalkboardTeacher></FaChalkboardTeacher> Add Class
             <span className="badge badge-secondary ml-1">+${cart?.length || 0}</span></NavLink>
             </li>
-            <li><NavLink to="/enrollclass"><FaChalkboardTeacher></FaChalkboardTeacher>My Classes</NavLink></li>
+            <li><NavLink to="/myClass"><FaChalkboardTeacher></FaChalkboardTeacher>My Classes</NavLink></li>
           </> : <>
           <li><NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Selected Classes
             <span className="badge badge-secondary ml-1">+${cart?.length || 0}</span></NavLink>
           </li>
-          <li><NavLink to="/enrollclass"><FaWallet></FaWallet> My Enrolled Classes</NavLink></li>
+          <li><NavLink to="/dashboard/enrolledClass"><FaWallet></FaWallet> My Enrolled Classes</NavLink></li>
           </>
             
           }
