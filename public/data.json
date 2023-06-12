@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "01",
+    "class_img": "https://i.ibb.co/yXdx96W/cricket.jpg",
+    "class_name": "Cricket",
+    "instructor_name": "Virat Kohli",
+    "available_seats": 25,
+    "price": 199,
+    "number_of_students": 18
+  },
+  {
+    "_id": "02",
+    "class_img": "https://i.ibb.co/B61Ld8M/football.jpg",
+    "class_name": "Football",
+    "instructor_name": "neymar Jr.",
+    "available_seats": 15,
+    "price": 149,
+    "number_of_students": 12
+  },
+  {
+    "_id": "03",
+    "class_img": "https://i.ibb.co/zmBz3zK/tennis.jpg",
+    "class_name": "Tennis",
+    "instructor_name": "Michael Johnson",
+    "available_seats": 20,
+    "price": 179,
+    "number_of_students": 16
+  },
+  {
+    "_id": "04",
+    "class_img": "https://i.ibb.co/wSWbmBd/basketball.jpg",
+    "class_name": "Basketball",
+    "instructor_name": "Sarah Brown",
+    "available_seats": 30,
+    "price": 129,
+    "number_of_students": 22
+  },
+  {
+    "_id": "05",
+    "class_img": "https://i.ibb.co/xs9w22g/swimming.jpg",
+    "class_name": "Swimming",
+    "instructor_name": "David Wilson",
+    "available_seats": 18,
+    "price": 189,
+    "number_of_students": 14
+  },
+  {
+    "_id": "06",
+    "class_img": "https://i.ibb.co/WV6WxMZ/vollyball.jpg",
+    "class_name": "Volleyball",
+    "instructor_name": "Emily Taylor",
+    "available_seats": 22,
+    "price": 159,
+    "number_of_students": 20
+  }
+]
