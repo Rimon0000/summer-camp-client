@@ -6,6 +6,8 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
 import Classes from "../pages/Home/Classes/Classes";
+import Dashboard from "../Layout/Dashboard";
+import MyCart from "../pages/Dashboard/MyCart/MyCart";
 
  export const router = createBrowserRouter([
     {
@@ -28,6 +30,16 @@ import Classes from "../pages/Home/Classes/Classes";
           path: "/classes",
           element: <Classes></Classes>
         }
-      ]
+      ],
     },
+    {
+      path: "dashboard",
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          path: "mycart",
+          element: <MyCart></MyCart>
+        }
+      ]
+    }
   ]);
