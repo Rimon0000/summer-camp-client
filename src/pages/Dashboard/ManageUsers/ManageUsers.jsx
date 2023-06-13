@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { FaUserShield } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const ManageUsers = () => {
     const {data: users= [], refetch} = useQuery(['users'], async() =>{
@@ -27,6 +28,27 @@ const ManageUsers = () => {
         })
       }
 
+      const handleMakeInstructor = (user) =>{
+        fetch(`http://localhost:5000/users/instructor/${user._id}`,{
+          method: 'PATCH'
+        })
+        .then(res => res.json())
+        .then(data =>{
+          if(data.modifiedCount){
+            refetch()
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: `${user.name} is an Instructor Now!`,
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+        })
+      }
+
+
+
     return (
         <div className='w-full'>
         <h2 className='font-semibold text-3xl my-4'>Total Users: {users.length}</h2>
@@ -48,11 +70,11 @@ const ManageUsers = () => {
                     <th>{index + 1}</th>
                     <td>{user.name}</td>
                     <td>{user.email}</td>
-                    <td>{user.role === 'admin' ? 'admin' : 
+                    <td>{user.role === 'admin' ? 'Admin' : 
                       <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-500 text-white">Admin</button>
                     }</td>
-                    <td>{user.role === 'instructor' ? 'instructor' : 
-                      <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-500 text-white">Instructor</button>
+                    <td>{user.role === 'instructor' ? 'Instructor' : 
+                      <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-red-500 text-white">Instructor</button>
                     }</td>
                   </tr>)
               }
