@@ -42,7 +42,6 @@ const MyCart = () => {
             <div className='uppercase font-semibold h-[60px] flex justify-evenly items-center my-5'>
                <h3 className='text-3xl'>My Selected Classes: {cart.length}</h3>
                <h3 className='text-3xl'>Total Price: ${total}</h3>
-               <Link to="/dashboard/payment"><button className='btn btn-warning btn-sm'>PAY</button></Link>
             </div>
             <div className="overflow-x-auto">
               <table className="table w-full">
@@ -55,6 +54,7 @@ const MyCart = () => {
                     <th>Instructor Name</th>
                     <th>Price</th>
                     <th>Action</th>
+                    <th>Payment</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -77,6 +77,10 @@ const MyCart = () => {
                             <td className='text-end'>${item.price}</td>
                             <td>
                               <button onClick={() => handleDelete(item)} className="btn btn-ghost bg-red-600 text-white"><FaTrashAlt></FaTrashAlt></button>
+                            </td>
+                            {/* //TODO: Payment  */}
+                            <td>
+                            <Link to="/dashboard/payment"><button className='btn btn-warning btn-sm'>PAY</button></Link>
                             </td>
                           </tr>   )
                     }

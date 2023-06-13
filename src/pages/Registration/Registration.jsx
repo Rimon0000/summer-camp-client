@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import signUp from "../../assets/sign/signup.jpg"
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, json, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 
@@ -40,16 +40,30 @@ const Registration = () => {
             updateUserProfile(name, photo)
             .then(() =>{
               console.log('user profile info updated')
-              form.reset()
-              Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'User created successfully.',
-                showConfirmButton: false,
-                timer: 1500
+              const saveUser = {name: name, email: email, photoURL: photo}
+              fetch("http://localhost:5000/users",{
+                method: "POST",
+                headers: {
+                  'content-type': 'application/json'
+                },
+                body: JSON.stringify(saveUser)
+              })
+              .then(res => res.json())
+              .then(data =>{
+                if(data.insertedId){
+                      form.reset()
+                    Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User created successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
               })
               setError('')
               navigate("/")
+                }
+              })
+
             })
         })
         .catch(error =>{

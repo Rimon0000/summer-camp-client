@@ -5,7 +5,7 @@ import { FaChalkboardTeacher, FaHome, FaShoppingCart, FaThLarge, FaWallet } from
 
 const Dashboard = () => {
   const [cart] = useCart()
-  const isAdmin = false
+  const isAdmin = true
   const isInstructor = false
   return (
     <div className="drawer lg:drawer-open">
@@ -21,9 +21,7 @@ const Dashboard = () => {
           {/* Sidebar content here */}
     
           { isAdmin ? <>
-            <li><NavLink to="/dashboard/manageClass"><FaThLarge></FaThLarge> Manage Classes
-            <span className="badge badge-secondary ml-1">+${cart?.length || 0}</span></NavLink>
-            </li>
+            <li><NavLink to="/dashboard/manageClass"><FaThLarge></FaThLarge> Manage Classes</NavLink></li>
             <li><NavLink to="/dashboard/manageUser"><FaThLarge></FaThLarge> Manage Users</NavLink></li>
           </> : 
           isInstructor ?
@@ -34,8 +32,8 @@ const Dashboard = () => {
             <li><NavLink to="/myClass"><FaChalkboardTeacher></FaChalkboardTeacher>My Classes</NavLink></li>
           </> : <>
           <li><NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Selected Classes
-            <span className="badge badge-secondary ml-1">+${cart?.length || 0}</span></NavLink>
-          </li>
+            <span className="badge badge-secondary">+${cart?.length || 0}</span>
+            </NavLink></li>
           <li><NavLink to="/dashboard/enrolledClass"><FaWallet></FaWallet> My Enrolled Classes</NavLink></li>
           </>
             
