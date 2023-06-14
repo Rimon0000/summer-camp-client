@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useCart from '../../../hooks/useCart';
 
 const Class = ({item}) => {
-    const {_id, class_img, class_name, instructor_name, available_seats, price} = item;
+    const {_id, image, class_name, instructor_name, available_seats, price} = item;
     const {user} = useContext(AuthContext)
     const [ , refetch] = useCart()
     const navigate = useNavigate()
@@ -55,7 +55,7 @@ const Class = ({item}) => {
 
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
-          <figure><img src={class_img} alt="Shoes" /></figure>
+          <figure><img src={image} alt="Shoes" /></figure>
           <div className="card-body">
             <h2 className="card-title font-bold">{class_name}</h2>
             <p className='font-semibold'>Instructor Name: {instructor_name}</p>

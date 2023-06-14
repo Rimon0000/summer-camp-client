@@ -32,9 +32,7 @@ const Dashboard = () => {
           </> : 
           isInstructor ?
           <>
-            <li><NavLink to="/dashboard/addClass"><FaChalkboardTeacher></FaChalkboardTeacher> Add Class
-            <span className="badge badge-secondary ml-1">+${cart?.length || 0}</span></NavLink>
-            </li>
+            <li><NavLink to="/dashboard/addClass"><FaChalkboardTeacher></FaChalkboardTeacher> Add Class</NavLink></li>
             <li><NavLink to="/myClass"><FaChalkboardTeacher></FaChalkboardTeacher>My Classes</NavLink></li>
           </> : <>
           <li><NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Selected Classes
