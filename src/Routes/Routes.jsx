@@ -12,6 +12,8 @@ import PrivateRoute from "../Routes/PrivateRoute";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import InstructorRoute from "./InstructorRoute";
+import Payment from "../pages/Dashboard/Payment/Payment";
+import AdminRoute from "./AdminRoute";
 
  export const router = createBrowserRouter([
     {
@@ -45,8 +47,13 @@ import InstructorRoute from "./InstructorRoute";
           element: <MyCart></MyCart>
         },
         {
+          path: "payment/:id",
+          element: <Payment></Payment>,
+          loader: ({params}) => <Payment id={params.id}></Payment>
+        },
+        {
           path: "manageUser", 
-          element: <ManageUsers></ManageUsers>
+          element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
         },
         {
           path: "addClass", 

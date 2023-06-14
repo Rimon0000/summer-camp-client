@@ -66,7 +66,7 @@ const MyCart = () => {
                             <td>
                                 <div className="avatar">
                                   <div className="mask mask-squircle w-12 h-12">
-                                    <img src={item.class_img} alt="Avatar Tailwind CSS Component" />
+                                    <img src={item.image} alt="Avatar Tailwind CSS Component" />
                                   </div>
                                 </div>                         
                             </td>
@@ -80,7 +80,7 @@ const MyCart = () => {
                             </td>
                             {/* //TODO: Payment  */}
                             <td>
-                            <Link to="/dashboard/payment"><button className='btn btn-warning btn-sm'>PAY</button></Link>
+                            <Link to={`/dashboard/payment/${item._id}`}><button className='btn btn-warning btn-sm'>PAY</button></Link>
                             </td>
                           </tr>   )
                     }
