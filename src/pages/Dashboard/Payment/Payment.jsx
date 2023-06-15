@@ -10,8 +10,7 @@ const Payment = () => {
     const {id} = useParams()
     const [cart] = useCart()
     const selectedClass = cart.find( (item) => item._id === id)
-    console.log(selectedClass.price)
-    const price = selectedClass.price
+    const price = selectedClass?.price
     
 
     return (
@@ -20,7 +19,7 @@ const Payment = () => {
             <h2 className='text-3xl uppercase py-4'>Payment</h2>
             </div>
             <Elements stripe={stripePromise}>
-                <CheckoutForm price={price} selectedClass={selectedClass} cart={cart}></CheckoutForm>
+                <CheckoutForm price={price} id={id} selectedClass={selectedClass} cart={cart}></CheckoutForm>
             </Elements>
         </div>
     );

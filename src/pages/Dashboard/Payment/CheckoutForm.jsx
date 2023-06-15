@@ -4,7 +4,7 @@ import { AuthContext } from '../../../providers/AuthProvider';
 import "./CheckoutForm.css";
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
-const CheckoutForm = ({price, selectedClass, cart}) => {
+const CheckoutForm = ({price, selectedClass, cart, id}) => {
     const stripe = useStripe()
     const elements = useElements()
     const {user} = useContext(AuthContext)
@@ -148,13 +148,18 @@ const CheckoutForm = ({price, selectedClass, cart}) => {
           email: user?.email,
           transactionId: paymentIntent.id,
           price,
+          available_seats: selectedClass.available_seats,
           date: new Date(),
           status: "service pending",
+          className: selectedClass.class_name,
+          cartItems: selectedClass._id,
+          image: selectedClass.image,
+          classItems: selectedClass.classItemId
         };
   
         axiosSecure.post("/payments", payment).then((res) => {
           console.log(res.data);
-          fetch(`http://localhost:5000/all-classes/seats/${selectedClass._id}`, {
+          fetch(`http://localhost:5000/all-classes/seats/${selectedClass._id}`, payment, {
             method: "PATCH",
           })
             .then((res) => res.json())
@@ -162,6 +167,7 @@ const CheckoutForm = ({price, selectedClass, cart}) => {
   
           if (res.data.insertResult.insertedId) {
             // display confirm
+            console.log(res.data.insertResult.insertedId)
           }
           if (res.data.deleteResult.deletedCount > 0) {
             // display confirm
