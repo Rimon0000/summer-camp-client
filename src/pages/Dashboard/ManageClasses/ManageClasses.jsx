@@ -37,9 +37,9 @@ const ManageClasses = () => {
                     <td>{cls.available_seats}</td>
                     <td>{cls.price}</td>
                     <td>
-                        <button onClick={() => handleMakeAdmin(cls)} className="btn btn-outline btn-sm bg-orange-500 text-white">Approve</button>
-                        <button onClick={() => handleMakeAdmin(cls)} className="btn btn-outline btn-sm bg-red-500 text-white">Deny</button>
-                        <button onClick={() => handleMakeAdmin(cls)} className="btn btn-outline btn-sm bg-orange-500 text-white">Feedback</button>
+                        <button className="btn btn-outline btn-sm bg-orange-500 text-white">Approve</button>
+                        <button className="btn btn-outline btn-sm bg-red-500 text-white">Deny</button>
+                        <button className="btn btn-outline btn-sm bg-orange-500 text-white">Feedback</button>
                     </td>
                   </tr>)
               }

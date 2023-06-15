@@ -15,6 +15,7 @@ import InstructorRoute from "./InstructorRoute";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import AdminRoute from "./AdminRoute";
 import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
+import EnrolledClasses from "../pages/Dashboard/EnrolledClasses/EnrolledClasses";
 
  export const router = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
           element: <MyCart></MyCart>
         },
         {
+          path: "enrollClass",
+          element: <EnrolledClasses></EnrolledClasses>
+        },
+        {
           path: "payment/:id",
           element: <Payment></Payment>,
           loader: ({params}) => <Payment id={params.id}></Payment>
@@ -58,7 +63,7 @@ import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
         },
         {
           path: "manageClass", 
-          element: <ManageClasses></ManageClasses>
+          element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
         },
         {
           path: "addClass", 
