@@ -3,44 +3,24 @@ import signUp from "../../assets/sign/signup.jpg"
 import { Link, json, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { useForm } from 'react-hook-form';
 
 const Registration = () => {
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const {createUser, updateUserProfile} = useContext(AuthContext)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const navigate = useNavigate()
 
-    const handleSignUp = (event) =>{
-        event.preventDefault()
-        const form = event.target 
-        const name = form.name.value
-        const email = form.email.value
-        const password = form.password.value
-        const confirm = form.confirm.value
-        const photo = form.photo.value
-        console.log(name, email, password, confirm, photo)
-
-        if(password.length < 6){
-          setError('Password must be 6 characters or longer');
-          return
-        }
-        else if (!/[A-Z]/.test(password)) {
-          setError('Password should contain at least one capital letter');
-          return
-        } 
-        else if (!/[!@#$%^&*()]/.test(password)) {
-          setError('Password should contain at least one special character');
-          return
-        }
-
-        createUser(email, password)
+    const onSubmit = (data) =>{
+        createUser(data.email, data.password)
         .then(result => {
             const loggedUser = result.user
             console.log(loggedUser)
-            updateUserProfile(name, photo)
+            updateUserProfile(data.name, data.photoURL)
             .then(() =>{
               console.log('user profile info updated')
-              const saveUser = {name: name, email: email, photoURL: photo}
+              const saveUser = {name: data.name, email: data.email, photoURL: data.photo}
               fetch("http://localhost:5000/users",{
                 method: "POST",
                 headers: {
@@ -51,7 +31,7 @@ const Registration = () => {
               .then(res => res.json())
               .then(data =>{
                 if(data.insertedId){
-                      form.reset()
+                      reset()
                     Swal.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -83,36 +63,48 @@ const Registration = () => {
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
               <div className="card-body">
               <h1 className="text-3xl text-center font-bold">Sign Up</h1>
-                <form onSubmit={handleSignUp}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text">Name</span>
                       </label>
-                      <input type="text" placeholder="Name" name="name" className="input input-bordered" required/>
+                      <input type="text" {...register("name", { required: true })} name='name' placeholder="Name" className="input input-bordered" />
+                        {errors.name && <span className='text-red-600'>Name is required</span>}
                     </div>
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text">Email</span>
                       </label>
-                      <input type="text" placeholder="email" name="email" className="input input-bordered" required/>
+                      <input type="email" {...register("email", { required: true })} name='email' placeholder="Email" className="input input-bordered" />
+                        {errors.email && <span className='text-red-600'>Email is required</span>}
                     </div>
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text">Password</span>
                       </label>
-                      <input type="password" placeholder="Password" name="password" className="input input-bordered" required/>
+                      <input type="password" {...register("password",{ required: true,
+                           minLength: 6, 
+                           maxLength: 20,
+                           pattern: /(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9])/
+                            })} name='password' placeholder="password" className="input input-bordered" />
+                        {errors.password?.type === 'required' && <p className='text-red-600'>Password is required</p>}
+                        {errors.password?.type === 'minLength' && <p className='text-red-600'>Password must be 6 characters</p>}
+                        {errors.password?.type === 'maxLength' && <p className='text-red-600'>Password must be less than 20 characters</p>}
+                        {errors.password?.type === 'pattern' && <p className='text-red-600'>Password must have one uppercase and one special character.</p>}
                     </div>
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text">Confirm Password</span>
                       </label>
-                      <input type="password" placeholder="Confirm Password" name="confirm" className="input input-bordered" required />
+                      <input type="password" {...register("confirm", { required: true })} placeholder="Confirm Password" name="confirm" className="input input-bordered" required />
+                      {errors.confirm && <span className='text-red-600'>confirm Password is required</span>}
                     </div>
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text">Photo URL</span>
                       </label>
-                      <input type="text" placeholder="Photo URL" name="photo" className="input input-bordered" required/>
+                      <input type="text" {...register("photoURL", { required: true })} placeholder="photoURL" className="input input-bordered" />
+                        {errors.photoURL && <span className='text-red-600'>photoURL is required</span>}
                       <label className="label">
                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                       </label>

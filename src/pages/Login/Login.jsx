@@ -4,8 +4,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { useForm } from 'react-hook-form';
 
 const Login = () => {
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
@@ -20,14 +22,9 @@ const Login = () => {
       };
 
 
-    const handleLogin = (event) =>{
-        event.preventDefault()
-        const form = event.target 
-        const email = form.email.value
-        const password = form.password.value
-        console.log(email, password)
+    const onSubmit = (data) =>{
 
-        login(email, password)
+        login(data.email, data.password)
         .then(result =>{
             const loggedUser = result.user 
             console.log(loggedUser)
@@ -41,7 +38,7 @@ const Login = () => {
               }
             })
             setError(' ')
-            form.reset()
+            reset()
             navigate(from, { replace: true })
         })
         .catch(error =>{
@@ -84,19 +81,21 @@ const Login = () => {
               <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <div className="card-body">
                 <h1 className="text-3xl text-center font-bold">Login</h1>
-                  <form onSubmit={handleLogin}>
+                  <form onSubmit={handleSubmit(onSubmit)}>
                       <div className="form-control">
                         <label className="label">
                           <span className="label-text">Email</span>
                         </label>
-                        <input type="text" placeholder="email" name="email" className="input input-bordered" required/>
+                        <input type="email" {...register("email", { required: true })} name='email' placeholder="Email" className="input input-bordered" />
+                        {errors.email && <span className='text-red-600'>Email is required</span>}
                       </div>
                       <div className="form-control">
                         <label className="label">
                           <span className="label-text">Password</span>
                         </label>
-                        <input type={showPassword ? "text" : "password"} placeholder="Password" name="password" className="input input-bordered" required/>
+                        <input type={showPassword ? "text" : "password"} placeholder="Password" {...register("password", { required: true })} name="password" className="input input-bordered" required/>
                          <FaEye className="password-toggle mt-2" onClick={togglePasswordVisibility}></FaEye>
+                         {errors.email && <span className='text-red-600'>Password is required</span>}
                       </div>
                       <div className="form-control mt-6">
                         <input type="submit" className="btn btn-primary" value="Login" />
