@@ -6,6 +6,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
+import { Fade } from "react-awesome-reveal";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -21,7 +22,8 @@ const Navbar = () => {
 
   const navOptions = (
     <>
-      <li>
+    <Fade cascade>
+    <li>
         <Link to='/'>Home</Link>
       </li>
       <li>
@@ -72,6 +74,7 @@ const Navbar = () => {
           </li>
         </>
       )}
+    </Fade>
     </>
   );
 
