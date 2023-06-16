@@ -18,11 +18,13 @@ import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 
 import InstructorClass from "../pages/Dashboard/MyClass/InstructorClass";
 import Instructors from "../pages/Home/Instructors/Instructors";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
