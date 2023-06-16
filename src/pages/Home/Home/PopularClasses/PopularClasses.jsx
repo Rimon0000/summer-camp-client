@@ -6,7 +6,7 @@ const PopularClasses = () => {
     queryKey: ["popularClasses"],
 
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/popularClasses");
+      const res = await fetch("https://summer-camp-server-six-lemon.vercel.app/popularClasses");
       return res.json();
     },
   });
