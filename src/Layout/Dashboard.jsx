@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import { Fade } from "react-awesome-reveal";
 
 const Dashboard = () => {
   const [cart] = useCart();
@@ -37,6 +38,7 @@ const Dashboard = () => {
         <ul className='menu p-4 w-80 h-full text-base-content'>
           {/* Sidebar content here */}
 
+          <Fade cascade damping={0.5}>
           {isAdmin ? (
             <>
               <li>
@@ -85,6 +87,7 @@ const Dashboard = () => {
               </li>
             </>
           )}
+          </Fade>
 
           <div className='divider'></div>
           <li>

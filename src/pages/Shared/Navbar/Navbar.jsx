@@ -22,8 +22,7 @@ const Navbar = () => {
 
   const navOptions = (
     <>
-    <Fade cascade>
-    <li>
+      <li>
         <Link to='/'>Home</Link>
       </li>
       <li>
@@ -74,7 +73,6 @@ const Navbar = () => {
           </li>
         </>
       )}
-    </Fade>
     </>
   );
 
