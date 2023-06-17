@@ -10,7 +10,7 @@ const useCart = () =>{
 
     const { refetch, data : cart = [] } = useQuery({
         queryKey: ['carts', user?.email],
-        // enabled:(!!user?.email && !!localStorage.getItem("access-token") , !loading),
+        enabled:!!user?.email && !!localStorage.getItem("access-token") && !loading,
 
         queryFn: async () =>{
             const res = await fetch(`https://summer-camp-server-six-lemon.vercel.app/carts?email=${user?.email}`,{
