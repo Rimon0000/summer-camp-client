@@ -13,7 +13,7 @@ const useEnrollClass = () =>{
         // enabled:(!!user?.email && !!localStorage.getItem("access-token") , !loading),
 
         queryFn: async () =>{
-            const res = await fetch(`https://summer-camp-server-six-lemon.vercel.app/payments?email=${user?.email}`,{
+            const res = await fetch(`http://localhost:5000/payments?email=${user?.email}`,{
                 headers: {
                     authorization: `bearer ${token}`
                 }

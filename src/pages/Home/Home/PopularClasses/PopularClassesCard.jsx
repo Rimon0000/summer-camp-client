@@ -12,17 +12,16 @@ const PopularClassesCard = ({ cls }) => {
     _id,
   } = cls;
   return (
-    <div className='card border  w-full  '>
-      <figure className='p-10'>
-        {" "}
-        <img src={image} alt='' className='rounded-xl ' />
+    <div className='card bg-base-100 shadow-xl'>
+      <figure>
+        <img src={image} alt=''/>
       </figure>
-      <div className='card-body items-center   '>
-        <h2 className=' text-center  text-2xl font-bold'>{class_name}</h2>
-        <h2>Instructor: {instructor_name}</h2>
+      <div className='card-body'>
+        <h2 className='text-2xl font-bold'>{class_name}</h2>
+        <h2 className="font-semibold">Instructor: {instructor_name}</h2>
         <p>Available Seat: {available_seats}</p>
         <p>Enroll Student: {students}</p>
-        <p>Price: BDT {price}</p>
+        <p>Price: ৳{price}</p>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import useCart from "../../../hooks/useCart";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
 import { Fade } from "react-awesome-reveal";
+import "./Navbar.css"
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -50,7 +51,7 @@ const Navbar = () => {
       ) : (
         <></>
       )}
-      <li>
+      <li className="addcart">
         <Link to='/dashboard/mycart'>
           <button className='btn btn-sm'>
             <FaShoppingCart />

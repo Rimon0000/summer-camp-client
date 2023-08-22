@@ -159,7 +159,7 @@ const CheckoutForm = ({price, selectedClass, cart, id}) => {
   
         axiosSecure.post("/payments", payment).then((res) => {
           console.log(res.data);
-          fetch(`https://summer-camp-server-six-lemon.vercel.app/all-classes/seats/${selectedClass.classItemId}`,{
+          fetch(`http://localhost:5000/all-classes/seats/${selectedClass.classItemId}`,{
             method: "PATCH",
           })
             .then((res) => res.json())
