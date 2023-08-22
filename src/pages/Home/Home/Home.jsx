@@ -4,6 +4,7 @@ import Instructors from "../Instructors/Instructors";
 import PopularClasses from "./PopularClasses/PopularClasses";
 import OurServices from "../OurServices/OurServices";
 import UpcomingClasses from "../UpcomingClasses/UpcomingClasses";
+import Contact from "../Contact/Contact";
 
 const Home = () => {
   return (
@@ -11,8 +12,9 @@ const Home = () => {
       <Banner></Banner>
       <PopularClasses></PopularClasses>
       <Instructors></Instructors>
-      <UpcomingClasses></UpcomingClasses>
       <OurServices></OurServices>
+      <UpcomingClasses></UpcomingClasses>
+      <Contact></Contact>
     </div>
   );
 };
