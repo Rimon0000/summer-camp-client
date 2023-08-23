@@ -5,6 +5,7 @@ import PopularClasses from "./PopularClasses/PopularClasses";
 import OurServices from "../OurServices/OurServices";
 import UpcomingClasses from "../UpcomingClasses/UpcomingClasses";
 import Contact from "../Contact/Contact";
+import Facilities from "../Facilities/Facilities";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Instructors></Instructors>
       <OurServices></OurServices>
       <UpcomingClasses></UpcomingClasses>
+      <Facilities></Facilities>
       <Contact></Contact>
     </div>
   );
