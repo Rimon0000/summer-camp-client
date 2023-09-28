@@ -7,8 +7,7 @@ import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
 
 const Class = ({ item }) => {
-  const { _id, image, class_name, instructor_name, available_seats, price } =
-    item;
+  const { _id, image, class_name, instructor_name, available_seats, price } = item;
   const { user } = useContext(AuthContext);
   const [, refetch] = useCart();
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ const Class = ({ item }) => {
         price,
         email: user.email,
       };
-      fetch("http://localhost:5000/carts", {
+      fetch("https://summer-camp-server-rimon0000.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -65,18 +64,16 @@ const Class = ({ item }) => {
   };
 
   return (
-    <div className='card  bg-base-100 shadow-xl'>
+    <div className='card w-80 bg-base-100 shadow-xl'>
       <figure>
         <img src={image} alt='Shoes' />
       </figure>
       <div className='card-body'>
-        <h2 className='card-title font-bold'>{class_name}</h2>
-        <p className='font-semibold'>Instructor Name: {instructor_name}</p>
-        <div className='flex font-semibold'>
-          <p>Available Seats: {available_seats}</p>
-          <p>price: ${price}</p>
-        </div>
-        <div className='card-actions mt-2'>
+        <h2 className='card-title'>{class_name}</h2>
+        <p className='font-bold'>Instructor Name: <span className="semibold">{instructor_name}</span></p>
+        <p className="font-bold">Available Seats: <span className="semibold">{available_seats}</span></p>
+        <p className="font-bold">price: <span className="text-sm">${price}</span></p>
+        <div className='card-actions'>
           {isAdmin || isInstructor ? (
             <>
               <button
@@ -91,7 +88,7 @@ const Class = ({ item }) => {
             <>
               <button
                 onClick={() => handleAddToCart(item)}
-                className='btn btn-outline btn-primary'
+                className='btn btn-outline btn-primary border-solid'
               >
                 Select
               </button>

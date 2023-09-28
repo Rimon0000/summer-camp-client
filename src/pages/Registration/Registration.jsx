@@ -21,7 +21,7 @@ const Registration = () => {
             .then(() =>{
               console.log('user profile info updated')
               const saveUser = {name: data.name, email: data.email, photoURL: data.photoURL}
-              fetch("http://localhost:5000/users",{
+              fetch("https://summer-camp-server-rimon0000.vercel.app/users",{
                 method: "POST",
                 headers: {
                   'content-type': 'application/json'
@@ -63,7 +63,7 @@ const Registration = () => {
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
               <div className="card-body">
               <h1 className="text-3xl text-center font-bold">Sign Up</h1>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} className='m-0'>
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text">Name</span>

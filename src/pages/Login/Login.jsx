@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import login from "../../assets/sign/login.jpg"
+import abcd from "../../assets/login/abcd.png"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -54,7 +54,7 @@ const Login = () => {
           console.log(loggedUser)
 
           const saveUser = {name: loggedUser.displayName, email: loggedUser.email, photoURL: loggedUser.photoURL}
-          fetch('http://localhost:5000/users',{
+          fetch('https://summer-camp-server-rimon0000.vercel.app/users',{
             method: 'POST',
             headers: {
               'content-type': 'application/json'
@@ -73,15 +73,15 @@ const Login = () => {
     }
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200 pt-20">
           <div className="hero-content flex-col lg:flex-row">
-            <div className="w-1/2">
-                <img className='w-3/4' src={login} alt=""/>
+            <div className='w-1/2'>
+                <img className='w-3/4' src={abcd} alt=""/>
               </div>
-              <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+              <div className="card text-left flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <div className="card-body">
                 <h1 className="text-3xl text-center font-bold">Login</h1>
-                  <form onSubmit={handleSubmit(onSubmit)}>
+                  <form onSubmit={handleSubmit(onSubmit)} className='m-0'>
                       <div className="form-control">
                         <label className="label">
                           <span className="label-text">Email</span>
@@ -97,7 +97,7 @@ const Login = () => {
                          <FaEye className="password-toggle mt-2" onClick={togglePasswordVisibility}></FaEye>
                          {errors.email && <span className='text-red-600'>Password is required</span>}
                       </div>
-                      <div className="form-control mt-6">
+                      <div className="form-control mt-3">
                         <input type="submit" className="btn btn-primary" value="Login" />
                       </div>
                       <div>
@@ -105,7 +105,7 @@ const Login = () => {
                       <p className='text-lime-500'>{error}</p>
                       </div>
                   </form>
-                  <p className="my-4 text-center">New to Real champions? <Link className="text-orange-600 font-bold" to="/registration">Sign Up</Link></p>
+                  <p className=" text-center">New to Real champions? <Link className="text-orange-600 font-bold" to="/registration">Sign Up</Link></p>
                   <div>
                   <Link><button onClick={handleGoogleLogin} className="btn btn-outline btn-secondary"><FaGoogle className='mr-2 text-black'/> Google Login</button></Link>
                 </div>

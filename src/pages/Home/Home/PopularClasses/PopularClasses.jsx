@@ -6,7 +6,7 @@ const PopularClasses = () => {
     queryKey: ["popularClasses"],
 
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/popularClasses");
+      const res = await fetch("https://summer-camp-server-rimon0000.vercel.app/popularClasses");
       return res.json();
     },
   });
@@ -19,7 +19,7 @@ const PopularClasses = () => {
             </h2>
             <p>Find Your Game With Real Champions Academy.</p>
           </div>
-          <div className='grid md:grid-cols-3 gap-5 my-5'>
+          <div className='grid md:grid-cols-3 gap-8 my-5 mx-10'>
             {popularClasses.map((cls, index) => (
               <PopularClassesCard key={index} cls={cls}></PopularClassesCard>
             ))}

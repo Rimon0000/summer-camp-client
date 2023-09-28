@@ -69,7 +69,7 @@ const Navbar = () => {
         </>
       ) : (
         <>
-          <li>
+          <li className="lg:ml-28">
             <Link to='/login'>Login</Link>
           </li>
         </>
@@ -79,7 +79,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className='navbar fixed z-10 bg-opacity-30 bg-black lg:text-white max-w-screen-xl'>
+      <div className='navbar fixed z-10 bg-opacity-30 bg-gray-800 lg:text-white max-w-screen-xl'>
         <div className='navbar-start'>
           <div className='dropdown'>
             <label tabIndex={0} className='btn btn-ghost lg:hidden'>
@@ -106,7 +106,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to='/' className='mr-3'>
-            <img className='w-15 h-14 rounded-lg' src={logo} alt='' />
+            <img className='w-15 h-14 rounded-lg lg:ml-5' src={logo} alt='' />
           </Link>
           <a className='btn btn-ghost normal-case text-xl'>Real Champions</a>
         </div>

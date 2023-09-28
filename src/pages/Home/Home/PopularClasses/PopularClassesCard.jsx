@@ -1,18 +1,9 @@
 import React from "react";
 
 const PopularClassesCard = ({ cls }) => {
-  const {
-    image,
-    instructor_name,
-
-    class_name,
-    price,
-    available_seats,
-    students,
-    _id,
-  } = cls;
+  const {image, instructor_name, class_name, price, available_seats, students, _id,} = cls;
   return (
-    <div className='card bg-base-100 shadow-xl'>
+    <div className='card w-80 bg-base-100 shadow-xl'>
       <figure>
         <img src={image} alt=''/>
       </figure>

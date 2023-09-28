@@ -11,8 +11,8 @@ const Facilities = () => {
             <p>Facilities of our academy.</p>
             </div>
 
-            <div className='grid lg:grid-cols-4 gap-2'>
-                <div className='relative zoomable-image'>
+            <div className='grid lg:grid-cols-4 gap-5'>
+                <div className='relative zoomable-image '>
                     <img src={"https://i.ibb.co/gZKPRm9/swim.jpg"} alt=""/>
                     <div className="absolute h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
                        <div className="text-white pl-12 pt-5">

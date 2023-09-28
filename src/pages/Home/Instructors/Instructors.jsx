@@ -5,7 +5,7 @@ const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/instructors")
+    fetch("https://summer-camp-server-rimon0000.vercel.app/instructors")
       .then((res) => res.json())
       .then((data) => {
         setInstructors(data);
@@ -20,7 +20,7 @@ const Instructors = () => {
         </h2>
         <p>Choose your instructor to improve yourself.</p>
       </div>
-      <div className='grid md:grid-cols-3 gap-5 my-5'>
+      <div className='grid md:grid-cols-3 gap-8 my-5 mx-10'>
         {instructors.map((instructor) => (
           <Instructor key={instructor._id} instructor={instructor}></Instructor>
         ))}
