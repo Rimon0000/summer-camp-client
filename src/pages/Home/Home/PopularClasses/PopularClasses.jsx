@@ -13,13 +13,13 @@ const PopularClasses = () => {
 
   return (
     <div>
-          <div className='mx-auto text-center md:w-4/12 my-8'>
+          <div className='mx-auto text-center my-8'>
             <h2 className='text-3xl font-semibold uppercase py-3'>
               Our Popular Classes
             </h2>
             <p>Find Your Game With Real Champions Academy.</p>
           </div>
-          <div className='grid md:grid-cols-3 gap-8 my-5 mx-10'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 my-5 mx-auto text-center lg:mx-10'>
             {popularClasses.map((cls, index) => (
               <PopularClassesCard key={index} cls={cls}></PopularClassesCard>
             ))}

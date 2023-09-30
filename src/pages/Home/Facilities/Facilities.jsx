@@ -3,7 +3,7 @@ import "./Facilities.css"
 
 const Facilities = () => {
     return (
-        <div>
+        <div className='px-5'>
             <div className='mx-auto text-center md:w-4/12 my-8'>
             <h2 className='text-3xl font-semibold uppercase py-3'>
               Facilities

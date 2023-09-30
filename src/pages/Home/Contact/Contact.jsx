@@ -4,21 +4,23 @@ import { FaBeer, FaMailBulk, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
 const Contact = () => {
     return (
 
-        <div className='my-10 bg-base-200 rounded-lg pb-5 px-20' id='contact'>
-            <div className='mx-auto text-center md:w-4/12 my-8'>
+        <div className='my-10 bg-base-200 rounded-lg pb-5 lg:px-20' id='contact'>
+            <div className='mx-auto text-center my-8'>
             <h2 className='text-3xl font-semibold uppercase py-3'>
               Contact us
             </h2>
             <p>Let's Work Together.</p>
             </div>
-            <div className='grid lg:grid-cols-2'>
-                <div className='bg-slate-800 rounded-lg p-10' data-aos="fade-right" data-aos-duration="2000">
+            {/* data-aos="fade-right" data-aos-duration="2000"
+            data-aos="fade-left" data-aos-duration="2000" */}
+            <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 '>
+                <div className='bg-slate-800 rounded-lg p-10'>
                    <form className='m-0'>
                    <div className="form-control">
-                     <input type="text" placeholder="Name" className="input input-bordered bg-white text-black rounded-lg w-full" required/>
+                     <input type="text" placeholder="Name" className="input input-bordered bg-white text-black rounded-lg" required/>
                    </div>
                    <div className="form-control">
-                     <input type="email" placeholder="Email" className="input input-bordered bg-white text-black rounded-lg w-full" required/>
+                     <input type="email" placeholder="Email" className="input input-bordered bg-white text-black rounded-lg" required/>
                    </div>
                    <div className="form-control">
                      <textarea className="textarea textarea-bordered bg-white text-black rounded-lg" placeholder="Write Your Message" required></textarea>
@@ -27,8 +29,8 @@ const Contact = () => {
                    </form>
                 </div>
 
-                <div className='bg-black rounded-lg text-white' data-aos="fade-left" data-aos-duration="2000">
-                    <h2 className='text-center text-2xl font-semibold m-5 p-5 border-b-2 border-gray-500 w-1/2 mx-auto'>Contact Info</h2>
+                <div className='bg-black rounded-lg text-white' >
+                    <h2 className='text-center text-2xl font-semibold m-5 p-5 border-b-2 border-gray-500 mx-auto'>Contact Info</h2>
                     <div className='flex gap-3 ml-10 pt-5 text-xl'>
                         <div className='rounded-full'><FaMailBulk></FaMailBulk></div>
                         <p><span className='font-semibold'>Email: </span>rimonron.ad@gmail.com</p>

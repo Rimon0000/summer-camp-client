@@ -3,7 +3,7 @@ import React from "react";
 const Instructor = ({ instructor }) => {
   const { photoURL, name } = instructor;
   return (
-    <div className='card w-80 bg-base-100 shadow-xl'>
+    <div className='card xl:w-80 bg-base-100 shadow-xl'>
       <figure>
         <img src={photoURL} alt='Shoes' />
       </figure>

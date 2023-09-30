@@ -15,8 +15,8 @@ const UpcomingClasses = () => {
               </h2>
               <p>if you are looking for any course, you can keep eyes of these courses.</p>
             </div>
-            <div className='grid md:grid-cols-3 gap-5 my-5 mx-10'>
-            <div className='card w-80 bg-base-100 shadow-xl' data-aos="zoom-in-up" data-aos-duration="3000">
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 my-5 lg:mx-10'>
+            <div className='card xl:w-80 bg-base-100 shadow-xl' data-aos="zoom-in-up" data-aos-duration="3000">
               <figure>
                 <img src={golf} alt='Golf' />
               </figure>
@@ -26,7 +26,7 @@ const UpcomingClasses = () => {
               </div>
             </div>
 
-            <div className='card w-80 bg-base-100 shadow-xl' data-aos="zoom-in-up" data-aos-duration="3000">
+            <div className='card xl:w-80 bg-base-100 shadow-xl' data-aos="zoom-in-up" data-aos-duration="3000">
               <figure>
                 <img src={rugby} alt='Rugby' />
               </figure>
@@ -36,7 +36,7 @@ const UpcomingClasses = () => {
               </div>
             </div>
 
-            <div className='card w-80 bg-base-100 shadow-xl' data-aos="zoom-in-up" data-aos-duration="3000">
+            <div className='card xl:w-80 bg-base-100 shadow-xl' data-aos="zoom-in-up" data-aos-duration="3000">
               <figure>
                 <img src={karate} alt='Karate' />
               </figure>
@@ -46,7 +46,7 @@ const UpcomingClasses = () => {
               </div>
             </div>
 
-            <div className='card w-80 bg-base-100 shadow-xl' data-aos="zoom-in-up" data-aos-duration="3000">
+            <div className='card xl:w-80 bg-base-100 shadow-xl' data-aos="zoom-in-up" data-aos-duration="3000">
               <figure>
                 <img src={cycling} alt='Cycling' />
               </figure>
@@ -56,7 +56,7 @@ const UpcomingClasses = () => {
               </div>
             </div>
 
-            <div className='card w-80 bg-base-100 shadow-xl' data-aos="zoom-in-up" data-aos-duration="3000">
+            <div className='card xl:w-80 bg-base-100 shadow-xl' data-aos="zoom-in-up" data-aos-duration="3000">
               <figure>
                 <img src={running} alt='Running' />
               </figure>
@@ -66,7 +66,7 @@ const UpcomingClasses = () => {
               </div>
             </div>
 
-            <div className='card w-80 bg-base-100 shadow-xl' data-aos="zoom-in-up" data-aos-duration="3000">
+            <div className='card xl:w-80 bg-base-100 shadow-xl' data-aos="zoom-in-up" data-aos-duration="3000">
               <figure>
                 <img src={chess} alt='Chess' />
               </figure>
