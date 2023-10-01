@@ -16,6 +16,7 @@ const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <div style={{overflowX: 'hidden'}}>
     <AuthProvider>
     <QueryClientProvider client={queryClient}>
     <div className='max-w-screen-xl mx-auto'>
@@ -23,5 +24,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </div>
     </QueryClientProvider>
     </AuthProvider>
+    </div>
   </React.StrictMode>,
 )
