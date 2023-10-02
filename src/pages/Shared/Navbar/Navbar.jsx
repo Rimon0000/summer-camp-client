@@ -63,13 +63,13 @@ const Navbar = () => {
       </li>
       {user ? (
         <>
-          <button onClick={handleLogout} className='btn btn-ghost'>
+          <button onClick={handleLogout} className='btn btn-ghost logout-btn'>
             LogOut
           </button>
         </>
       ) : (
         <>
-          <li className="lg:ml-28">
+          <li className="lg:ml-20">
             <Link to='/login'>Login</Link>
           </li>
         </>
@@ -114,7 +114,7 @@ const Navbar = () => {
           <ul className='menu menu-horizontal px-1'>{navOptions}</ul>
         </div>
         {user && (
-          <div className=''>
+          <div className='pr-16'>
             <div className='w-12 rounded-full'>
               <img
                 className='rounded-full'
