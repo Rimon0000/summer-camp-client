@@ -6,7 +6,7 @@ const Contact = () => {
 
         <div className='my-10 bg-base-200 rounded-lg pb-5 lg:px-20' id='contact'>
             <div className='mx-auto text-center my-8'>
-            <h2 className='text-3xl font-semibold uppercase py-3'>
+            <h2 className='text-3xl font-semibold uppercase py-2'>
               Contact us
             </h2>
             <p>Let's Work Together.</p>

@@ -5,7 +5,7 @@ const Facilities = () => {
     return (
         <div className='px-5'>
             <div className='mx-auto text-center md:w-4/12 my-8'>
-            <h2 className='text-3xl font-semibold uppercase py-3'>
+            <h2 className='text-3xl font-semibold uppercase py-2'>
               Facilities
             </h2>
             <p>Facilities of our academy.</p>

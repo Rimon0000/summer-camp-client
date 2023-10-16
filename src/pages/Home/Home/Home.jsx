@@ -7,12 +7,14 @@ import UpcomingClasses from "../UpcomingClasses/UpcomingClasses";
 import Contact from "../Contact/Contact";
 import Facilities from "../Facilities/Facilities";
 import PartnerCompany from "../PartnerCompany/PartnerCompany";
+import LatestClass from "../LatestClass/LatestClass";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
       <PopularClasses></PopularClasses>
+      <LatestClass></LatestClass>
       <Instructors></Instructors>
       <OurServices></OurServices>
       <UpcomingClasses></UpcomingClasses>

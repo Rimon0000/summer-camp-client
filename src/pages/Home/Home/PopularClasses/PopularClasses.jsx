@@ -14,7 +14,7 @@ const PopularClasses = () => {
   return (
     <div>
           <div className='mx-auto text-center my-8'>
-            <h2 className='text-3xl font-semibold uppercase py-3'>
+            <h2 className='text-3xl font-semibold uppercase py-2'>
               Our Popular Classes
             </h2>
             <p>Find Your Game With Real Champions Academy.</p>

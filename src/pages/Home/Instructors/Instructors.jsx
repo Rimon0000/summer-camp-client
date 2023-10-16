@@ -15,7 +15,7 @@ const Instructors = () => {
   return (
     <div>
       <div className='mx-auto text-center md:w-4/12 my-8'>
-        <h2 className='text-3xl font-semibold uppercase py-3'>
+        <h2 className='text-3xl font-semibold uppercase py-2'>
           Popular Instructors
         </h2>
         <p>Choose your instructor to improve yourself.</p>

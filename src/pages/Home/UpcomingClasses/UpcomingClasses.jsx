@@ -10,7 +10,7 @@ const UpcomingClasses = () => {
     return (
         <div>
             <div className='mx-auto text-center md:w-4/12 my-8'>
-              <h2 className='text-3xl font-semibold uppercase py-4'>
+              <h2 className='text-3xl font-semibold uppercase py-2'>
                 Upcoming Classes
               </h2>
               <p>if you are looking for any course, you can keep eyes of these courses.</p>

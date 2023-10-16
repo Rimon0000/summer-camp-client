@@ -13,8 +13,12 @@ import img10 from "../../../assets/logo images/img10.jpg"
 const PartnerCompany = () => {
     return (
         <div className='my-7'>
-            <h2 className='text-center text-4xl font-bold pt-5 px-5 pb-2'>Our Partner Company</h2>
-            <p className='text-center font-semibold mb-5 text-stone-800'>Check out our sponsor company</p>
+            <div className='mx-auto text-center my-8'>
+            <h2 className='text-3xl font-semibold uppercase py-2'>
+                 Partner Company
+            </h2>
+            <p >Our sponsor company's</p>
+          </div>
             <div className='d-flex'>
               <Marquee className='text-danger' speed={100}>
               <div className="card w-96 bg-base-100 shadow-xl">
