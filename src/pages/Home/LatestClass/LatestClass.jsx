@@ -8,13 +8,13 @@ const LatestClass = () => {
     const [showSeeAllButton, setShowSeeAllButton] = useState(true);
 
     useEffect(() =>{
-        fetch("http://localhost:5000/latestClasses")
+        fetch("https://summer-camp-server-rimon0000.vercel.app/latestClasses")
         .then(res => res.json())
         .then(data => setClasses(data.slice(0, 3)))
     },[])
 
     const seeAllHandler = () =>{
-            fetch("http://localhost:5000/latestClasses")
+            fetch("https://summer-camp-server-rimon0000.vercel.app/latestClasses")
             .then(res => res.json())
             .then(data => setClasses(data))
             setShowSeeAllButton(false)
