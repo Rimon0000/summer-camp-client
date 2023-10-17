@@ -8,6 +8,8 @@ import Contact from "../Contact/Contact";
 import Facilities from "../Facilities/Facilities";
 import PartnerCompany from "../PartnerCompany/PartnerCompany";
 import LatestClass from "../LatestClass/LatestClass";
+import Gallery from "../Gallery/Gallery";
+import About from "../About/About";
 
 const Home = () => {
   return (
@@ -15,12 +17,14 @@ const Home = () => {
       <Banner></Banner>
       <PopularClasses></PopularClasses>
       <LatestClass></LatestClass>
+      <About></About>
       <Instructors></Instructors>
       <OurServices></OurServices>
       <UpcomingClasses></UpcomingClasses>
       <Facilities></Facilities>
       <PartnerCompany></PartnerCompany>
       <Contact></Contact>
+      <Gallery></Gallery>
     </div>
   );
 };
