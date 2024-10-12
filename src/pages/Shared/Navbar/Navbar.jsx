@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
-import logo from "../../../assets/logo.png";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
 import { Fade } from "react-awesome-reveal";
-import "./Navbar.css"
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -15,6 +13,11 @@ const Navbar = () => {
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
 
+  const activeLink ="text-[#83b446] font-bold underline underline-offset-8 text-base flex items-center font-heading";
+  const deActiveLink ="transition-all font-semibold hover:underline underline-offset-8 hover:text-[#955E42] flex items-center  font-heading";
+
+
+  //handle logout
   const handleLogout = () => {
     logOut()
       .then(() => {})
@@ -23,63 +26,70 @@ const Navbar = () => {
 
   const navOptions = (
     <>
-      <li>
-        <Link to='/'>Home</Link>
-      </li>
-      <li>
-        <Link to='/instructors'>Instructors</Link>
-      </li>
-      <li>
-        <Link to='/classes'>Classes</Link>
-      </li>
-      {user ? (
-        <>
-          <li>
-            <NavLink
-              to={
-                isAdmin
-                  ? "dashboard/manageUser"
-                  : isInstructor
-                  ? "dashboard/addClass"
-                  : "dashboard/mycart"
-              }
-            >
-              Dashboard
-            </NavLink>
-          </li>
-        </>
-      ) : (
-        <></>
-      )}
-      <li className="addcart">
-        <Link to='/dashboard/mycart'>
-          <button className='btn btn-sm'>
-            <FaShoppingCart />
-            <div className='badge badge-secondary ml-1'>
+      <NavLink
+        to="/"
+        title="Home"
+        className={({ isActive }) => (isActive ? activeLink : deActiveLink)}
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to="/classes"
+        title="Classes"
+        className={({ isActive }) => (isActive ? activeLink : deActiveLink)}
+      >
+        Classes
+      </NavLink>
+      <NavLink
+        to={
+          isAdmin
+            ? "dashboard/manageUser"
+            : isInstructor
+            ? "dashboard/addClass"
+            : "dashboard/mycart"
+        }
+        className={({ isActive }) => (isActive ? activeLink : deActiveLink)}
+      >
+        Dashboard
+      </NavLink>
+      <NavLink
+        to="/instructors"
+        title="Instructors"
+        className={({ isActive }) => (isActive ? activeLink : deActiveLink)}
+      >
+        Instructors
+      </NavLink>
+
+      <NavLink to='/dashboard/mycart'  className={({ isActive }) => (isActive ? activeLink : deActiveLink)}>
+        <button className='btn btn-sm mt-[-1px]'>
+            <FaShoppingCart className=""></FaShoppingCart>
+          <div className='badge badge-secondary'>
               +{cart?.length || 0}
             </div>
-          </button>
-        </Link>
-      </li>
+        </button>
+      </NavLink>
+
       {user ? (
         <>
-          <button onClick={handleLogout} className='btn btn-ghost logout-btn'>
+          <button onClick={handleLogout} className='rounded-3xl logOut-btn mt-[-1px]'>
             LogOut
           </button>
         </>
       ) : (
         <>
-          <li className="lg:ml-20">
-            <Link to='/login'>Login</Link>
-          </li>
+          <button className="rounded-3xl primary-btn mt-[-1px]">
+            <NavLink to='/login'>Login</NavLink>
+          </button>
         </>
       )}
     </>
   );
 
+
+  
+
   return (
-    <>
-      <div className='navbar fixed z-10 bg-opacity-30 bg-gray-800 lg:text-white'>
+      <div className='navbar fixed top-0 z-50 bg-base-100 shadow-md font-heading px-12 h-[80px]'>
         <div className='navbar-start'>
           <div className='dropdown'>
             <label tabIndex={0} className='btn btn-ghost lg:hidden'>
@@ -100,22 +110,22 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'
+              className='menu menu-compact dropdown-content mt-3 z-10 p-6 shadow w-52 space-y-3 bg-[#1A1A1A] text-gray-200 rounded-lg'
             >
               {navOptions}
             </ul>
           </div>
-          <Link to='/' className='mr-3'>
-            <img className='w-15 h-14 rounded-lg lg:ml-5' src={logo} alt='' />
-          </Link>
-          <a className='btn btn-ghost normal-case text-xl'>Real Champions</a>
+          <NavLink to='/' className='flex gap- items-center text-[#955E42]'>
+            <img className='w-12 rounded-lg' src="https://i.ibb.co.com/1X1MCnJ/logo-removebg-preview.webp" alt='' />
+            <a className='btn btn-ghost normal-case text-xl font-bold '>Real Champions</a>
+          </NavLink>
         </div>
-        <div className='navbar-center hidden lg:flex'>
-          <ul className='menu menu-horizontal px-1'>{navOptions}</ul>
+        <div className='navbar-center hidden lg:flex items-center gap-12'>
+          <ul className='menu menu-horizontal px-1 space-x-8 flex'>{navOptions}</ul>
         </div>
         {user && (
-          <div className='pr-16'>
-            <div className='w-12 rounded-full'>
+          <div className='ml-[150px] md:ml-[150px] lg:ml-[1px]'>
+            <div className='w-10 rounded-full'>
               <img
                 className='rounded-full'
                 src={user?.photoURL}
@@ -127,7 +137,6 @@ const Navbar = () => {
           </div>
         )}
       </div>
-    </>
   );
 };
 

@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-     <h2>rimon</h2>
+     <h2>testing....</h2>
     </>
   )
 }

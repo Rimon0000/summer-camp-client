@@ -1,26 +1,22 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import img1 from "../../../assets/banner/img1.jpg"
-import img2 from "../../../assets/banner/img2.jpg"
-import img3 from "../../../assets/banner/img3.jpg"
-import img4 from "../../../assets/banner/img4.jpg"
 
 
 const Banner = () => {
     return (
             <Carousel>
                 <div>
-                    <img src={img1} />
+                    <img src="https://i.ibb.co.com/m9TXkxw/img1-1.webp" />
                 </div>
                 <div>
-                    <img src={img2} />
+                    <img src="https://i.ibb.co.com/HzqtMrg/img2.webp" />
                 </div>
                 <div>
-                    <img src={img3} />
+                    <img src="https://i.ibb.co.com/fDXgZHM/img3.webp" />
                 </div>
                 <div>
-                    <img src={img4} />
+                    <img src="https://i.ibb.co.com/HhTC7z4/img4.webp" />
                 </div>
         </Carousel>
     );

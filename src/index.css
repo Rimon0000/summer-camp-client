@@ -2,9 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 .drawer-side a.active {
     color: white;
 }
 .drawer-side a {
     background-color: transparent;
 }
+
+/* Apply Nunito to headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  /* Apply Roboto to body text */
+  body, p, div, span {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .primary-btn {
+    @apply px-[52px] lg:px-6 py-2 flex items-center font-medium tracking-wide text-white uppercase transition-colors duration-300 transform bg-[#955E42] rounded-full hover:bg-[#553739];
+  }
+
+  .logOut-btn {
+    @apply px-[52px] lg:px-4 py-2 flex items-center font-medium tracking-wide text-white uppercase transition-colors duration-300 transform bg-[#955E42] rounded-full hover:bg-[#553739];
+  }
