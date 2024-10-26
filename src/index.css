@@ -12,20 +12,14 @@
     background-color: transparent;
 }
 
-/* Apply Nunito to headings */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Nunito', sans-serif;
-  }
-  
-  /* Apply Roboto to body text */
-  body, p, div, span {
-    font-family: 'Open Sans', sans-serif;
-  }
-
   .primary-btn {
     @apply px-[52px] lg:px-6 py-2 flex items-center font-medium tracking-wide text-white uppercase transition-colors duration-300 transform bg-[#955E42] rounded-full hover:bg-[#553739];
   }
 
   .logOut-btn {
     @apply px-[52px] lg:px-4 py-2 flex items-center font-medium tracking-wide text-white uppercase transition-colors duration-300 transform bg-[#955E42] rounded-full hover:bg-[#553739];
+  }
+
+  .card-btn {
+    @apply px-[52px] lg:px-6 py-5 text-center place-content-center btn-sm flex font-medium tracking-wide text-white uppercase transition-colors duration-300 transform bg-[#955E42] rounded-full hover:bg-[#553739];
   }

@@ -15,6 +15,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
+      <div className="w-full max-w-[90%] px-[12px] mx-auto">
       <PopularClasses></PopularClasses>
       <LatestClass></LatestClass>
       <About></About>
@@ -25,6 +26,7 @@ const Home = () => {
       <PartnerCompany></PartnerCompany>
       <Contact></Contact>
       <Gallery></Gallery>
+      </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import Navbar from '../pages/Shared/Navbar/Navbar';
 
 const Main = () => {
     return (
-        <div>
+        <div className="font-heading">
             <Navbar></Navbar>
             <div className="min-h-[calc(100vh-299px)]">
               <Outlet />
